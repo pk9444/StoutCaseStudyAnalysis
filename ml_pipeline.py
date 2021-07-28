@@ -98,7 +98,7 @@ print(type_frequencies)
 
 # ML-Classifier objects to be used in Flask
 # Uncomment these lines below to generate the .pkl files for building the pipeline
-clf_GNB.fit(X1, y1)
-pickle.dump(clf_GNB, open('model_GNB.pkl','wb'))
-clf_LR.fit(X1, y1)
-pickle.dump(clf_LR, open('model_LR.pkl','wb'))
+# clf_GNB.fit(X1, y1)
+# pickle.dump(clf_GNB, open('model_GNB.pkl','wb'))
+# clf_LR.fit(X1, y1)
+# pickle.dump(clf_LR, open('model_LR.pkl','wb'))
