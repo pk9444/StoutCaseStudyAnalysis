@@ -1,16 +1,16 @@
 # Stout Case Study Analysis - Fraud Detection
 
-## OUTLINE
+## Outline
 
 Case Study Data Analysis on Fraud Detection from Transaction Data. Uses Machine Learning to predict whether a transaction is fraudulent or not. Deployed to production as a Flask-based web application. 
 
-## TECHNOLOGY STACK
+## Technology Stack
 - Python 3.9 - sklearn, pandas, numpy, scipy
 - Flask - Web Server 
 - HTML/CSS -User Interface
 - Excel - for charts and visualizations
 
-## READ ME 
+## README  
 
 - initialize a git repository in an empty folder in your system `git init`
 - git clone `https://github.com/pk9444/StoutCaseStudyAnalysis`
