@@ -1,4 +1,4 @@
-# Stou Case Study Analysis
+# Stout Case Study Analysis - Fraud Detection
 
 ## OUTLINE
 
