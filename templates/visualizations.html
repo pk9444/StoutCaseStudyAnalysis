@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>visualizations</title>
+    <style>
+        table, th, td {
+  border: 1px solid black;
+}
+    </style>
+</head>
+<body>
+
+<h2>Graphical Visualizations</h2>
+<br>
+<!--<div>-->
+<!--    <img src = {{url_for('static', filename='bar_graph.jpg')}} width="500" height="400">-->
+<!--&lt;!&ndash;    <img src = "/static/bar_graph.jpg">&ndash;&gt;-->
+<!--<p>Some data about the text</p>-->
+<!--</div>-->
+<!--<br>-->
+<!--<div>-->
+<!--    <img src = {{url_for('static', filename='pie_chart.png')}} width="500" height="400">-->
+<!--&lt;!&ndash;    <img src = "/static/bar_graph.jpg">&ndash;&gt;-->
+<!--Some data aout the date-->
+<!--</div>-->
+<!--<br>-->
+<!--<div>-->
+<!--    <img src = {{url_for('static', filename='box_whisker.jpg')}} width="500" height="400">-->
+<!--&lt;!&ndash;    <img src = "/static/bar_graph.jpg">&ndash;&gt;-->
+
+<!--</div>-->
+<table>
+    <tr>
+        <th>Visualization</th>
+        <th>Inferences</th>
+    </tr>
+    <tr>
+        <td>
+            <img src = {{url_for('static', filename='bar_graph.jpg')}} width="550" height="370">
+        </td>
+        <td>
+            <ul>
+                <li>
+                    The total size of sample space of the visualization is same as the size of the dataset i.e. 6 million records
+                    which means there were that many transactions made.
+                </li>
+                <li>
+                    The Transactions made are of the following 5 types :
+                    <ol>
+                        <li>CASH_OUT</li>
+                        <li>PAYMENT</li>
+                        <li>CASH_IN</li>
+                        <li>TRANSFER</li>
+                        <li>DEBIT</li>
+                    </ol>
+                </li>
+                <li>The frequency of each transaction type is counted from the pandas dataframe and compared against in the bar plot or
+                 we can call it frequency plot.</li>
+                <li> CASH_OUT was the most frequent transaction type with around approx. 2.2 million such transactions made and so were
+                the PAYMENT type transactions, which are nearly 2.1 million. </li>
+                <li>So, we can conclude on the finding, that CASH_OUT is the <b>Mode</b> of the dataset for field "type". </li>
+            </ul> </td>
+    </tr>
+    <!-- New row for pie chart -->
+    <tr>
+        <td><img src = {{url_for('static', filename='pie_chart.png')}} width="700" height="350"></td>
+        <td>
+            <li>Let us delve into some more number for the transaction types. This pie chart visualization delves into the percentage composition
+            of the transaction types that were computed in the bar graph visualization. </li>
+            <li>As it can be expected from the bar graph, CASH_OUT comprises of the highest percentage of the total transaction made
+            composing of 35.16% of the total transactions and it is closely followed by PAYMENT with approx 34%. </li>
+            <li>Not even 1% transactions were of the DEBIT and under 10% of those were of the TRANSFER type. </li>
+            <li>This can be lead to two possibilities : </li>
+            <ol>
+                <li>Either the most frequent transaction like CASH_OUT and PAYMENT will have much higher instances of fraudulent transaction.</li>
+                <li> Or, the least frequent ones, like TRANSFER and DEBIT, have been having greater fraudulent instances and hence, the users might have stopped making these type of transactions.</li>
+            </ol>
+        </td>
+    </tr>
+
+    <!-- New row -->
+    <tr>
+        <td><img src = {{url_for('static', filename='treemap.png')}} width="700" height="310"></td>
+        <td>
+            <li>This is a Treemap visualization that compares the mean and median of the field 'amount' which is the
+            transaction amount across all 6 million records in the dataset. </li>
+            <li> It is a generic concept in terms of statistical and data analysis that mean and median are usually the same in a
+            dataset and if not the same, then at least similar. </li>
+            <li> However, this also depends upon the nature of the dataset we are working. Datasets that are highly heterogeneous, will have a
+            large entropy i.e. degree of randomness that could cause variations in the mean and median. </li>
+            <li> In addition to that, a greater number of extremes in the values also contributes to great variations in the mean and median.
+            Afterall, mean is the average, sum of all instances divided by the no. of instances, whereas median is the middle most instance.</li>
+            <li> As this dataset is highly heterogeneous i.e. having high entropy level and lot of extreme values, the mean and median vary greatly.
+                The Treemap takes the mean and median as two nodes and graphically represent them with respect to the <b><i>areas under the curve</i> </b>
+            that they represent. </li>
+            <li> As we can see, the mean node covers a much greater area, in an epistemic sense, more than twice than that of the median node. So, it
+            corroborates with the heterogeneity, high entropy and the extreme ended values of the dataset. </li>
+            <li> To be more specific in terms of numbers, the mean amount was approx. $179862 whereas the median was approx. $74782. So, the
+            mean is almost 2.4 times then median and hence, it fits very well with the treemap visualization in terms of the area under the curve
+            for each node. </li>
+        </td>
+    </tr>
+    <!-- New Row -->
+    <tr>
+        <td><img src = {{url_for('static', filename='box_whisker.png')}} width="580" height="340" align="center"></td>
+        <td>
+            <li>This visualization is a Box and Whisker plot between old and new mean balances at two different locations - Origin and Destination</li>
+            <li>From the given dataset, when an amount is transacted, they changes are reflected in the old and new balance after that transaction, like it
+            happens anywhere at real-time. These post-transactional changes are recorded at the Origin and the Destination. </li>
+            <li> In order to process the post-transaction balance changes more feasibly, the mean balances are computed for four instances and polotted
+            against each in this Box and Whisker plot. So, it is like "old balance at Origin " v/s "new balance at Origin" and same for "old balance at destination"
+            v/s "new balance at destination". </li>
+            <li> A key consideration while using the Box and Whisker visualization was that it takes into account the median value while plotting
+            a data point on the graphical plane. And, we are computing the mean values for each balance record. So, in this way, we take into both
+            the mean and median of each balance record at the same time. </li>
+            <li> Analyzing the graph, we can infer that, on an average, when transactions took place at origin, the change was very less between the old
+            and the new balances. Both pre and post transaction balances at the origin are about 800K at a similar level.</li>
+            <li> But at the destination, the change in mean balance is stark. We can see, the post-transaction mean balance is greater than the
+            pre-transaction mean balance. This could possibly mean that the transactions at the destination, in a generic sense, were mostly of
+            the type CASH_IN. Hence, the increase in the mean new balance </li>
+        </td>
+    </tr>
+    <!-- New Row -->
+    <tr>
+        <td><img src = {{url_for('static', filename='cosine_similarity.png')}} width="580" height="340" align="center">
+        <img src = {{url_for('static', filename='KL_divergence.png')}} width="580" height="340" align="center">
+        </td>
+        <td>
+            <li>
+                In this visualization of a line plot, two correlation metrics have computed, evaluated and compared across three
+                sets of feature pairs. Let us delve in to the details of what correlation metrics are and the feature pair that are
+                evaluated. The correlation metrics used are :
+                <ol>
+                    <li><b>Cosine Similarity : </b> The Cosine Similarity is a correlation metric that measure how similar two documents can be.
+                        In this scenario, the documents are our two paired feature sets and we try to determine how similar they are. It is computed
+                        as the dot product between the documents or feature sets, like in the current scenario.
+                    </li>
+                    <li> <b>Kullback-Liebler Divergence : </b> The Kullback-Liebler (KL) Divergence, sometimes also called as Relative Entropy,
+quantifies how much one probability distribution differs from another. In this scenario, these distributions are our feature sets and we determine
+                    the divergent they are from one another.</li>
+                </ol>
+                The feature sets are being evaluated are :
+                <ol>
+                    <li> <b> isFraud v/s isFlaggedFraud : </b> how similar or divergent are these features of instances that are actually fraudulent v/s they are flagged as fraudulent by the current algorithm. </li>
+                    <li> <b> oldBalanceOrg v/s newBalanceOrg : </b> how similar or divergent are the balances before and after transactions at the origin. </li>
+                    <li> <b> oldBalanceDest v/s newBalanceDest : </b> how similar or divergent are the balances before and after transactions at the destination. </li>
+                </ol>
+
+            </li>
+
+            <li>The rationale behind using these correlation metrics is to analyze whether similarity and divergence holds true the hypotheses
+            that whether both of them follow any inverse behavorial pattern or not. Let us see how this works out. </li>
+            <li> In the cosine similarity, line plot, we can see the feature set of [isFraud, isFlaggedFraud] has higher cosine similarity
+            than [oldBalanceOrg,newBalanceOrg].</li>
+            <li>But it is the inverse case in the KL-Divergence. [oldBalanceOrg,newBalanceOrg] has much higher KL-Divergence than of [isFraud, isFlaggedFraud].
+            In addition to that, the percentage increment/decrement trend in both the correlation metrics also looks quite similar. </li>
+            <li>This also holds true for the [oldBalanceDest,newBalanceDest]. While, the cosine similarity shows an incremental trend from
+            [oldBalanceOrg,newBalanceOrg], for KL-Divergence, shows a decremental trend. </li>
+            <li> So, in a way cosine similarity and KL-Divergence do exhibit some kind of an inverse behavorial pattern. The hypotheses can be further
+            solidified if the dataset could have more robust and contained higher True Positive samples for fraudulent transaction instances. </li>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

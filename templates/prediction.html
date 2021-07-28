@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Suspecting a fraudulent transaction on you ? Let us detect! </h2>
+
+<form action="{{url_for('detect')}}" method="post">
+  <label for="amount">Amount : </label><br>
+  <input type="number" id="amount" name="amount" ><br>
+
+   <label for="oldBalanceOrg">Original Old Balance : </label><br>
+  <input type="number" id="oldBalanceOrg" name="oldBalanceOrg" ><br>
+
+   <label for="newBalanceOrg">Original New Balance : </label><br>
+  <input type="number" id="newBalanceOrg" name="newBalanceOrg" ><br>
+
+   <label for="oldBalanceDest">Destination Old Balance : </label><br>
+  <input type="number" id="oldBalanceDest" name="oldBalanceDest" ><br>
+
+  <label for="newBalanceDest">Destination New Balance : </label><br>
+  <input type="number" id="newBalanceDest" name="newBalanceDest" ><br>
+
+  <label for="isFraud">Is Fraud ? : </label><br>
+  <input type="number" id="isFraud" name="isFraud" ><br>
+
+  <input type="submit" value="Detect">
+</form>
+<p>*If fraudulent, then enter '1' else enter '0'</p>
+
+ {{ prediction_text }}
+
+</body>
+</html>
