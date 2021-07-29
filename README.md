@@ -18,7 +18,7 @@ Case Study Data Analysis on Fraud Detection from Transaction Data. Uses Machine 
 - save in your project directory
 - open the project in pycharm/vscode or the python shell , anyway you like
 - open `ml_pipeline.py` and modify the `path` variable to absolute path to your dataset
-- uncomment the lines at the end of `ml_pipeline.py` - this dump classifier objects containing ML pipelines into a pickle file to be used for prediction
+- uncomment the lines at the end of `ml_pipeline.py` - this dumps the classifier objects containing ML pipelines into a pickle file to be used for prediction
 - run `ml_pipeline.py`, two `.pkl` files will be generated in your project directory
 - now run `app.py` 
 - Flask server starts up and open the link or copy paste the address into your browser
