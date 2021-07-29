@@ -1,3 +1,4 @@
+# import libraries
 import numpy as np
 import pandas as pd
 from scipy.spatial import distance
@@ -9,7 +10,7 @@ from sklearn.model_selection import KFold
 from sklearn.model_selection import cross_val_predict
 import pickle
 
-# enter the absoulte path. Change it accordingly in your system
+# enter the absolute path. Change it accordingly in your system
 path = r'absolute path to the dataset csv file'
 
 # read all the data into a pandas dataframe
@@ -30,7 +31,7 @@ y1 = dataframe['isFlaggedFraud']
 print(X1.head(10).to_string())
 print(y1.head(10).to_string())
 
-# Define the ML classifiers
+# Define the ML classifiers - Here we use Gaussian Naive Bayes and Logistic Regression
 clf_GNB = GaussianNB()
 clf_LR = LogisticRegression(max_iter=1000)
 
@@ -39,10 +40,11 @@ k = 3
 kf = KFold(n_splits=k, random_state=None)
 
 
+# Generate all the necessary visualizations and analysis
 print("\nConfusion Matrices : ")
 print("----------------------------------------------------")
 
-# Prediction each model using k-value
+# Perform prediction based on k-fold snd generate confusion matrices
 y_pred_LR = cross_val_predict(clf_LR, X1, y1, cv=kf)
 cm_LR = confusion_matrix(y1, y_pred_LR)
 print("LR_Confusion_Matrix: " + str(cm_LR))
@@ -62,6 +64,11 @@ print("\nGaussian NB : ")
 classification_report_GNB = classification_report(y1, y_pred_GNB)
 print(classification_report_GNB)
 
+'''
+get_KL_Divergence - method to get the Kullback-Liebler Divergence value 
+@param  P,Q - probability distributions 
+@return KL-Divergence value 
+'''
 def get_KL_divergence(P,Q):
     output = 0
     DELTA = 0.00001
@@ -73,6 +80,7 @@ def get_KL_divergence(P,Q):
     return output
 
 
+# Computing correlation metrics - Cosine Similarity and KL-Divergence
 print("\nCorrelation Metrics : ")
 print("------------------------------------------------------------------------------------------")
 
@@ -95,6 +103,8 @@ print("Count of Transaction Types :")
 print("------------------------------------------------------------------------------------------")
 type_frequencies = dataframe['type'].value_counts()
 print(type_frequencies)
+
+
 
 # ML-Classifier objects to be used in Flask
 # Uncomment these lines below to generate the .pkl files for building the pipeline
