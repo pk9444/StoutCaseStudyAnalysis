@@ -55,6 +55,6 @@ def visualization():
 def evaluation():
     return render_template('evaluation.html')
 
-# Press the green button in the gutter to run the script.
+# Driver Function
 if __name__ == '__main__':
     app.run(debug=True)
