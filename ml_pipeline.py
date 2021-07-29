@@ -10,7 +10,7 @@ from sklearn.model_selection import cross_val_predict
 import pickle
 
 # enter the absoulte path. Change it accordingly in your system
-path = r'D:\pycharm\projects\StoutCaseStudyAnalysis\dataset\PS_20174392719_1491204439457_log.csv'
+path = r'absolute path to the dataset csv file'
 
 # read all the data into a pandas dataframe
 dataframe = pd.read_csv(path)
