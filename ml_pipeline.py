@@ -66,8 +66,8 @@ print(classification_report_GNB)
 
 '''
 get_KL_Divergence - method to get the Kullback-Liebler Divergence value 
-@param  P,Q - probability distributions 
-@return KL-Divergence value 
+@:param P,Q - probability distributions 
+@:return KL-Divergence value 
 '''
 def get_KL_divergence(P,Q):
     output = 0
