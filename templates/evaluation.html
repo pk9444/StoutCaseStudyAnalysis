@@ -34,8 +34,8 @@ analysis and classification. For this analysis :
   'type', 'nameOrg' and 'nameDest' were dropped from the data table and only numeric data fields were considered. </li>
   <li> Replacing empty records with the average values. First, any empty records for a given field were checked. If there were any,
   then replace it with the mean value of thar field. For binary fields, since, they have 0 and 1, replace them with 1. Even if a transaction
-  is not fraudulent but is classified as fraudulent, it will increase FPs cause a Type-1 error which will not significantly harm the algorithm.
-  It is the Type-2 error, i.e. more FNs that will be very harmful for fraud detection. So, we must work towards minimizing it as much as possible.</li>
+  is not fraudulent but is classified as one, it will increase FPs causing a Type-1 error which will not significantly harm the algorithm.
+  But if it is the Type-2 error, i.e. more TNs, then will be very harmful for fraud detection. So, we must work towards minimizing it as much as possible.</li>
 </ul>
 
 <br>
