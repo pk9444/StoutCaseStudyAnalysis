@@ -13,29 +13,29 @@
 <h2>Machine Learning Model Evaluation</h2>
 For the Data Analysis of the given dataset, following are the two ML algorithms that were implemented :
 <ul>
-  <li>Gaussian Naïve-Bayes </li>
-  <li>Logistic Regression</li>
+  <li><b>Gaussian Naïve-Bayes </b> </li>
+  <li><b>Logistic Regression </b></li>
 </ul>
 <h3>Rationale for Model Selection : </h3>
 The Gaussian Naïve-Bayes algorithm is based on the principle of <b>Conditional Probability</b> where as Logistic Regression is
 based on the principle of, as the name itself says, <b>Regression Analysis</b>. The Logistic regression is a type of Regression that
-works over Classification problem, something that is needed in this dataset since, we have to classify between fraudulent or not fraudulent.
-The Gaussian Naïve-Bayes on the hand, using a probability distribution based on conditional probability predicts in a binary classification,
+works over Classification problems, something that is needed in this dataset since, we have to classify whether fraudulent or not fraudulent.
+The Gaussian Naïve-Bayes on the other hand, uses a probability distribution based on conditional probability to predict in a binary classification,
 Yes or No, True or False, or in this dataset, Fraudulent or Not Fraudulent.
 So, this is the rationale for selecting these two algorithms. And, since they both are based on different principles, it can give us more
-insight into what could be a better-performing algorithm on this dataset or datasets similar to this one.
+insight into what could be a better-performing algorithm on this dataset or financial datasets similar to this one.
 <br>
 
 <h3>Data Cleaning : </h3>
-In order for our algorithms to be implemented there were some data cleaning operations performed in order to prepare it well for further
+In order for our algorithms to be implemented, there were some data cleaning operations performed in order to prepare it well for further
 analysis and classification. For this analysis :
 <ul>
-  <li>Non-numerical fields were dropped in order to create the feature set and pass it into the ML pipeline. So, records like
+  <li>Non-numerical fields were dropped in order to create the <b>feature set </b> and pass it into the ML pipeline. So, records like
   'type', 'nameOrg' and 'nameDest' were dropped from the data table and only numeric data fields were considered. </li>
   <li> Replacing empty records with the average values. First, any empty records for a given field were checked. If there were any,
   then replace it with the mean value of thar field. For binary fields, since, they have 0 and 1, replace them with 1. Even if a transaction
   is not fraudulent but is classified as one, it will increase FPs causing a Type-1 error which will not significantly harm the algorithm.
-  But if it is the Type-2 error, i.e. more TNs, then will be very harmful for fraud detection. So, we must work towards minimizing it as much as possible.</li>
+  But if it is the Type-2 error, i.e. more TNs, then will be very harmful for fraud detection. So, we must work towards minimizing the latter as much as possible.</li>
 </ul>
 
 <br>
@@ -126,10 +126,10 @@ it most importantly evaluates.
 
 <h4>Inferences : </h4>
 <ul>
-  <li>Logistic Regression performs has a 100% performance on all four metrics for non-fraudulent instances. This could possibly
+  <li>Logistic Regression has a 100% performance on all four metrics for non-fraudulent instances. This could possibly
   happen because of the overwhelming number of '0' values in isFraud.</li>
-  <li>Gaussian Naïve-Bayes has a 0% precision and f1-score for fraudulent instances. This means it could detect a fraudulent
-  instance as fraudulent on testing. But it could also because of the lack of '1' labelled samples in the dataset. </li>
+  <li>Gaussian Naïve-Bayes has a 0% precision and f1-score for fraudulent instances. This means it could not detect any fraudulent
+  instances as fraudulent on testing. But it could also because of the lack of '1' labelled samples in the dataset. </li>
   <li> So, for the current dataset, Logistic Regression comes out as the better performing algorithm and I have deployed the
   Machine Learning pipeline to production in the /prediction.html page with the Logistic Regression classifier. </li>
 </ul>
@@ -137,8 +137,8 @@ it most importantly evaluates.
 
 <h4>Proposed Enhancements : </h4>
 <ul>
-  <li> Applying Scalar Transformation to the numeric features like amount, oldBalanceOrg, newBalanceOrg, oldBalanceDest and oldBalanceDest.
-   This would enable better feature engineering and in particular, enhance the performance of Gaussian Naïve-Bayes algorithm. </li>
+  <li> Applying <b>Scalar Transformation</b> to the numeric features like amount, oldBalanceOrg, newBalanceOrg, oldBalanceDest and oldBalanceDest.
+   This would enable better feature engineering and in particular, may enhance the performance of Gaussian Naïve-Bayes algorithm. </li>
   <li>Once, Scalar Transformation is applied, compute TF-IDF for record and convert each record of a given field of the feature set to a feature vector.
   TD-IDF vectorization helps in realizing the Scalar Transformation at a high level. Since, a scalar is itself a 1-D vector, this would further
   enhance feature engineering and subsequently, lead to better performance of the ML algorithm. </li>
@@ -147,18 +147,18 @@ it most importantly evaluates.
 </ul>
 <br>
 <h3>What more could have been done ? : </h3>
-Given some more time to work on this project, a lot of more interesting things could have been done with this dataset. Some of them :
+Given some more time to work on this project, a lot of more interesting things could have been done with this dataset. Some of them are:
 <ul>
   <li> <b>Implement a few more ML algorithms: </b> More algorithms, like Support Vector Machine (SVM) and Boosted Decision Tree could have been
   implemented. I would have loved to evaluate and compare them against our current algorithms. It would have given more insight into what algorithm
-    works the best for this dataset. </li>
+    works the best for this dataset in principle. </li>
 
   <li> <b>Extend Some Deep Learning Functionality : </b> Deep Learning/Neural Nets are more intuitive than Supervised/Unsupervised Machine Learning
   and the performance with data at real-time is also more robust. It is a challenge to implement it efficiently, but I like such challenges and
   would have definitely implemented a Deep Learning pipeline given more time. </li>
 
-  <li><b>Make the UI more interactive : </b> This is more on the front-end level dealing with the HTML pages. Since, that task was more focused
-   on Data Analysis with a time constraint, I could not focus much on the UI part. Given more, I would have used some nice interactive styling
+  <li><b>Make the UI more interactive : </b> This is more on the front-end level dealing with the HTML pages. Since, the task was more focused
+   on Data Analysis with a time constraint, I could not focus much on the UI part. Given more time, I would have used some nice interactive styling
   to my HTML pages and make it more graphically appealing at the production level. </li>
 </ul>
 </body>
