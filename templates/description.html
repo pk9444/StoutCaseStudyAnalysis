@@ -5,31 +5,31 @@
     <title>data_description</title>
      <h3>Basic outline of the dataset : </h3>
     <ul>
-        <li>The dataset is a large scale dataset comprising of over 6 million (60<sup>6</sup>) records and 10 fields that contain transaction data and whether those transaction were detected as fraudulent or not.</li>
-        <li>It is a highly heterogeneous dataset which fields being of variegated datatypes. For instance fields - type, nameOrigin and nameDest are Strings whereas amount and balance based fields are of float types. There are two binary fields as well, isFraud and isFlagged fraud.</li>
-        <li>isFlagged and isFraud have binary values, they can be treated as boolean(true/false) or even integers (1/0) depending upon nature of data analysis. isFraud is actual detection of fraudulent whereas isFlaggedFraud is that the current algorithm has flagged it as fraudulent or not.</li>
-        <li>It is the isFlaggedFraud field that will acts as the prediction class,
-meaning that the prediction will made into it this field based on the values
-of the other fields. </li>
+        <li>The dataset is a large scale dataset comprising of over 6 million (6 * 10<sup>6</sup>) records and 10 fields that contain transaction data and whether those transaction were detected as fraudulent or not.</li>
+        <li>It is a highly heterogeneous dataset which has fields of variegated datatypes. For instance, fields - <i>type, nameOrigin and nameDest </i> are Strings whereas <i>amount</i> and <i>balance</i> based fields are of float types. There are two binary fields as well, isFraud and isFlagged fraud.</li>
+        <li> <i>isFlagged </i> and <i>isFraud </i> have binary values, they can be treated as boolean <b>(true/false)</b> or integers <b>(0/1)</b> depending upon nature of data analysis. isFraud is actual detection of a fraudulent transaction whereas isFlaggedFraud is the prediction made by the current algorithm whether fraudulent or not.</li>
+        <li>It is the <b>isFlaggedFraud </b> field that will be the prediction class,
+meaning that the prediction for fraudulence will made into it this field based on the values
+of the other fields, as defined in the feature set. </li>
         <li>A post processing analysis reveals that the mean amount and the median amount vastly differ. This shows the intrinsic skewness in
-        dataset pertaining to the transaction "amount" where there are lot of extreme values.
+            dataset pertaining to the transaction <b>"amount" </b> where there are lot of extreme values.
             And this skewness most likely permeates to the records as well. So, an exact prediction is difficult.</li>
 
     </ul>
 
     <h3>Issues with the dataset : </h3>
     <ul>
-        <li>A major issue with this dataset is that out over 1 million records,
-there are only 2 instances which are fraudulent. With such less number of
+        <li>A major issue with this dataset is that out of over 6 million records,
+there are only 2 instances which are fraudulent. With such a less number of
 isFraud data, a robust algorithm cannot be build.</li>
         <li>Even out of those two samples, although they are fraudulent, the current
-algorithm does not flag them as fraudulent. Which means there is virtually
-no True Positive instance for a fraudulent transaction being classified as
-it is supposed. This may negatively affect the precision and overall accuracy
+algorithm does not predicted them as fraudulent in the isFlaggedFraud field. Which means there is virtually
+            no <i> True Positive instance </i> for a fraudulent transaction being classified as
+it is supposed to be. This may negatively affect the precision and overall accuracy
 of any ML-algorithm.</li>
-        <li>Instead of using 1/0 for binary values, a better alternative could been
-using true/false as boolean values enable better binary classification and
-given a better notation from a predictive analysis point-of-view.</li>
+        <li>Instead of using 0/1 for binary values, a better alternative could have been
+using true/false, as boolean values enable better binary classification and
+give a better notation from a predictive analysis point-of-view.</li>
     </ul>
 </head>
 <body>
